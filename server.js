@@ -13,7 +13,9 @@ const IGDBKeyRecommendation = require('./controller/IGDBRecController.js')
 const TwitchController = require('./controller/TwitchController.js')
 
 
-
+app.get('/', (req, res) => {
+    res.send('Working')
+})
 app.post('/twitterCall', TwitterController)
 app.post('/IGDBCall', IGDBController)
 app.post('/RAWGCall', RawgGenreController)
