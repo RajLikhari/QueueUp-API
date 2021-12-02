@@ -20,7 +20,7 @@ module.exports = (req,res) => {
         }
         // parse response
         resp = JSON.parse(response.body);
-        // console.log(resp); // print response
+        console.log(resp); // print response
 
         var finalData = [];
         for (var i in resp) {
