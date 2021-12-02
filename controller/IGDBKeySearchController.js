@@ -6,7 +6,7 @@ module.exports = (req,res) => {
         'url': 'https://api.igdb.com/v4/games/', // GAMES ENDPOINT
         'headers': {
             'Client-ID': 'yx9j15fb7kntnqe8xy0abmdfl04pnx',
-            'Authorization': 'Bearer ccappafd8ac20qkclxalotj1yh0mbh',
+            'Authorization': 'Bearer 4w8sanv39hzwu0h80okpgviyembiqx',
             'Content-Type': 'text/plain'
         },
         body: 'fields name; limit 500; search "' + req.body.query + '";'
