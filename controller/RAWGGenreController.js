@@ -50,6 +50,7 @@ module.exports = (req,res) => {
 
     if (req.body.platform != null) {
         platformString = '&platforms='+req.body.platform;
+        console.log(platformString)
     }
 
     if (req.body.multiplayer != false){
