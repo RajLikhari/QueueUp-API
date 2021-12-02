@@ -80,6 +80,7 @@ module.exports = (req,res) => {
             // console.log(str)
             try{
                 var res_json = JSON.parse(str)
+                console.log(res_json)
                 var arr = []
                 for(let i = 0; i < 10; i++){
                     var name = res_json["results"][i]["name"];
