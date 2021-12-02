@@ -48,13 +48,15 @@ module.exports = (req,res) => {
     var platformString = '';
     var multiplayerString = '';
 
+    console.log(req.body.platform);
     if (req.body.platform != null) {
         platformString = '&platforms='+req.body.platform;
-        console.log(platformString)
+        console.log(platformString);
     }
 
     if (req.body.multiplayer != false){
         multiplayerString = '&tags=multiplayer';
+        console.log(multiplayerString);
     }
 
     const https = require('https')
@@ -78,9 +80,12 @@ module.exports = (req,res) => {
 
         response.on('end', function(){
             // console.log(str)
-            try{
-                var res_json = JSON.parse(str)
-                console.log(res_json)
+            var res_json = JSON.parse(str)
+            var count = res_json["count"];
+            // console.log(count);
+            if(count < 10){
+                res.status(400).send("User too old");
+            } else {
                 var arr = []
                 for(let i = 0; i < 10; i++){
                     var name = res_json["results"][i]["name"];
@@ -90,10 +95,7 @@ module.exports = (req,res) => {
                 }
                 // console.log(arr)
                 res.status(200).send(arr)
-            } catch (error){
-                res.status(400)
             }
-           
         })
     })
 
