@@ -78,16 +78,21 @@ module.exports = (req,res) => {
 
         response.on('end', function(){
             // console.log(str)
-            var res_json = JSON.parse(str)
-            var arr = []
-            for(let i = 0; i < 10; i++){
-                var name = res_json["results"][i]["name"];
-                // console.log(res_json["results"][i]["rating"])
-                var img = res_json["results"][i]["background_image"];
-                arr.push([name, img])
+            try{
+                var res_json = JSON.parse(str)
+                var arr = []
+                for(let i = 0; i < 10; i++){
+                    var name = res_json["results"][i]["name"];
+                    // console.log(res_json["results"][i]["rating"])
+                    var img = res_json["results"][i]["background_image"];
+                    arr.push([name, img])
+                }
+                // console.log(arr)
+                res.status(200).send(arr)
+            } catch (error){
+                res.status(400)
             }
-            // console.log(arr)
-            res.status(200).send(arr)
+           
         })
     })
 
