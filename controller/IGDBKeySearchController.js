@@ -28,7 +28,7 @@ module.exports = (req,res) => {
             finalData.push(name); 
             console.log(name);
         }
-        // console.log(finalData);
+        console.log(finalData);
         // return finalData;
         res.send(finalData).status(200)
     });
