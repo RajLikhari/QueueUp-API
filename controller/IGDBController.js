@@ -65,6 +65,7 @@ module.exports = (req,res) => {
     }
     // parse response
     resp = JSON.parse(response.body);
+    console.log(resp)
     var finalData = [];
     for (var i in resp) {
         var coverJSON = resp[i].cover;
