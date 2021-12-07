@@ -79,7 +79,7 @@ module.exports = (req,res) => {
         })
 
         response.on('end', function(){
-            // console.log(str)
+            console.log(str)
             var res_json = JSON.parse(str)
             var count = res_json["count"];
             // console.log(count);
